@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buscaminas</title>
+  <link rel="icon" href="media/icono.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Pantalla de bienvenida -->
+  <div id="overlay" class="overlay active">
+    <div class="login-box">
+      <h2>Bienvenido a Buscaminas</h2>
+      <input type="text" id="username-input" placeholder="Ingresa tu nombre" />
+      <button id="start-button">Comenzar</button>
+    </div>
+  </div>
+
+  <!-- Contenedor del juego -->
+  <div id="game-container" class="hidden">
+
+    <!-- Barra de controles -->
+    <div id="controls">
+      <div id="mine-counter">💣 10</div>
+      <div id="timer">00:00</div>
+      <div id="difficulty-buttons">
+        <button data-difficulty="EASY" class="active">Fácil</button>
+        <button data-difficulty="MEDIUM">Medio</button>
+        <button data-difficulty="HARD">Difícil</button>
+      </div>
+      <button id="reset-button">😊</button>
+    </div>
+
+    <!-- Botones superiores -->
+    <div class="top-bar">
+      <button id="pause-button" title="Pausar/Reanudar">⏸️</button>
+      <button id="dark-mode-button" title="Modo oscuro/claro">🌓</button>
+      <button id="mute-button" title="Silenciar/Reproducir sonido">🔊</button>
+    </div>
+
+    <!-- Estado del juego -->
+    <div id="status-message"></div>
+
+    <!-- Botón de reinicio -->
+    <div class="center-retry">
+      <button id="retry-button" style="display:none;">Reiniciar Juego</button>
+    </div>
+
+    <!-- Tablero -->
+    <div class="grid-wrapper">
+      <div id="grid" class="grid"></div>
+    </div>
+
+
+    <!-- Animación -->
+    <div id="animation-container"></div>
+
+    <!-- Instrucciones -->
+    <p class="instructions">Haz clic para revelar una celda. Clic derecho para marcar una mina.</p>
+
+    <!-- Ranking -->
+    <div id="ranking-container">
+      <h3>🏆 Ranking - <span id="ranking-difficulty-label">Fácil</span></h3>
+      <ul id="ranking-list"></ul>
+    </div>
+  </div>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>Contacto: <a href="mailto:gaston@ejemplo.com">gaston@ejemplo.com</a></p>
+    <p>Hecho por <strong>GastonUgaldeDesarrollador</strong></p>
+    <p><a href="https://github.com/TU_USUARIO/TU_REPOSITORIO" target="_blank">Ver código en GitHub</a></p>
+  </footer>
+
+  <!-- Audios -->
+  <audio id="sound-bomb" src="media/risa-nelson.mp3"></audio>
+  <audio id="sound-win" src="media/homer-woohoo.mp3"></audio>
+  <audio id="background-sound" loop>
+    <source src="media/reloj-fondo.mp3" type="audio/mpeg" />
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <!-- Script del juego -->
+  <script src="script.js"></script>
+</body>
+</html>
+

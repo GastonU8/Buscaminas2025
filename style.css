@@ -1,0 +1,360 @@
+/* === GLOBAL === */
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f3f3f3;
+  color: #000;
+  min-height: 100vh;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* === LOGIN BOX (Bienvenida) === */
+.overlay {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.login-box {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  max-width: 320px;
+  width: 90%;
+}
+
+.login-box h2 {
+  margin-bottom: 15px;
+}
+
+.login-box input[type="text"] {
+  padding: 10px;
+  font-size: 1em;
+  width: 90%;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.login-box button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 6px;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-box button:hover {
+  background-color: #0056b3;
+}
+
+body.dark-mode .login-box {
+  background: #1e1e1e;
+  color: #eee;
+}
+
+body.dark-mode .login-box input[type="text"] {
+  background-color: #333;
+  color: #eee;
+  border: 1px solid #555;
+}
+
+body.dark-mode .login-box button {
+  background-color: #1a73e8;
+}
+
+body.dark-mode .login-box button:hover {
+  background-color: #1356b3;
+}
+
+/* === GAME CONTAINER === */
+#game-container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 14px rgba(0,0,0,0.25);
+  padding: 20px;
+  max-width: 95vw;
+  box-sizing: border-box;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  margin: 20px auto;
+}
+
+body.dark-mode #game-container {
+  background: #1e1e1e;
+  box-shadow: 0 0 14px rgba(255,255,255,0.1);
+}
+
+/* === CONTROLES Y BOTONES === */
+#controls, .top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  background: #ccc;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #bbb;
+  transform: scale(1.03);
+}
+
+#difficulty-buttons button.active {
+  background: #007BFF;
+  color: #fff;
+}
+
+#reset-button {
+  font-size: 1.5em;
+  background: transparent;
+}
+
+#retry-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#retry-button:hover {
+  background-color: #d32f2f;
+}
+
+#status-message {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #e63946;
+}
+
+body.dark-mode #status-message {
+  color: #ff6b81;
+}
+
+/* === TIMER Y CONTADOR === */
+#mine-counter, #timer {
+  font-family: monospace;
+  font-size: 1.2em;
+  user-select: none;
+  min-width: 60px;
+  text-align: center;
+}
+
+body.dark-mode #timer {
+  color: #ccc;
+}
+
+/* === GRID === */
+.grid-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin: 10px 0;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+  display: block;
+}
+
+.grid {
+  display: grid;
+  gap: 1px;
+  background: #999;
+  padding: 1px;
+  border-radius: 4px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.cell {
+  width: 28px;
+  height: 28px;
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  user-select: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+body.dark-mode .cell {
+  background: #444;
+  color: #fff;
+}
+
+.cell.revealed {
+  background: #e0e0e0;
+  cursor: default;
+}
+
+body.dark-mode .cell.revealed {
+  background: #333;
+}
+
+.cell.mine {
+  background: #f8d7da;
+}
+
+body.dark-mode .cell.mine {
+  background: #b71c1c;
+}
+
+/* === TEXT COLORS === */
+.text-1 { color: #1e40af; }
+.text-2 { color: #15803d; }
+.text-3 { color: #dc2626; }
+.text-4 { color: #6b21a8; }
+.text-5 { color: #ca8a04; }
+.text-6 { color: #0d9488; }
+.text-7 { color: #000; }
+.text-8 { color: #4b5563; }
+
+/* === ANIMATIONS === */
+#animation-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+}
+
+#animation-container .main-animation {
+  width: 300px;
+  height: auto;
+  animation: pop 2s ease-out forwards;
+  position: relative;
+  z-index: 10;
+  display: block;
+  margin: 0 auto;
+}
+
+#animation-container .background-animation {
+  position: absolute;
+  width: 200vw;
+  height: 200vh;
+  object-fit: contain;
+  opacity: 0.1;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes pop {
+  0% { transform: scale(0); opacity: 0; }
+  20% { transform: scale(1.1); opacity: 1; }
+  80% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* === INSTRUCCIONES & RANKING === */
+.instructions,
+#ranking-container,
+.center-retry {
+  text-align: center;
+  margin: 10px auto;
+}
+
+#ranking-container {
+  background-color: #eee;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 320px;
+  padding: 12px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+#ranking-container h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1em;
+}
+
+#ranking-list {
+  list-style: decimal inside;
+  padding-left: 0;
+  margin: 0;
+}
+
+#ranking-list li {
+  margin-bottom: 4px;
+  font-size: 0.95em;
+}
+
+body.dark-mode #ranking-container {
+  background-color: #222;
+  color: #ddd;
+}
+
+/* === FOOTER === */
+footer {
+  margin-top: 20px;
+  font-size: 0.8em;
+  text-align: center;
+  color: #888;
+}
+
+body.dark-mode footer {
+  color: #aaa;
+}
+
+/* === MEDIA QUERIES === */
+@media (max-width: 768px) {
+  #controls,
+  .top-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .grid-wrapper {
+    padding: 0 10px 10px;
+  }
+
+  .instructions,
+  #ranking-container,
+  .center-retry {
+    width: 100%;
+    max-width: 95%;
+  }
+
+  #animation-container .main-animation {
+    width: 80vw;
+    max-width: 320px;
+  }
+}
