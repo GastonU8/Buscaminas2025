@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Pantalla de bienvenida -->
   <div id="overlay" class="overlay active">
     <div class="login-box">
       <h2>Bienvenido a Buscaminas</h2>
@@ -17,10 +16,8 @@
     </div>
   </div>
 
-  <!-- Contenedor del juego -->
   <div id="game-container" class="hidden">
 
-    <!-- Barra de controles -->
     <div id="controls">
       <div id="mine-counter">💣 10</div>
       <div id="timer">00:00</div>
@@ -32,48 +29,38 @@
       <button id="reset-button">😊</button>
     </div>
 
-    <!-- Botones superiores -->
     <div class="top-bar">
       <button id="pause-button" title="Pausar/Reanudar">⏸️</button>
       <button id="dark-mode-button" title="Modo oscuro/claro">🌓</button>
       <button id="mute-button" title="Silenciar/Reproducir sonido">🔊</button>
     </div>
 
-    <!-- Estado del juego -->
     <div id="status-message"></div>
 
-    <!-- Botón de reinicio -->
     <div class="center-retry">
       <button id="retry-button" style="display:none;">Reiniciar Juego</button>
     </div>
 
-    <!-- Tablero -->
     <div class="grid-wrapper">
       <div id="grid" class="grid"></div>
     </div>
 
-
-    <!-- Animación -->
     <div id="animation-container"></div>
 
-    <!-- Instrucciones -->
     <p class="instructions">Haz clic para revelar una celda. Clic derecho para marcar una mina.</p>
 
-    <!-- Ranking -->
     <div id="ranking-container">
       <h3>🏆 Ranking - <span id="ranking-difficulty-label">Fácil</span></h3>
       <ul id="ranking-list"></ul>
     </div>
   </div>
 
-  <!-- Pie de página -->
   <footer>
     <p>Contacto: <a href="mailto:gaston@ejemplo.com">gaston@ejemplo.com</a></p>
     <p>Hecho por <strong>GastonUgaldeDesarrollador</strong></p>
     <p><a href="https://github.com/TU_USUARIO/TU_REPOSITORIO" target="_blank">Ver código en GitHub</a></p>
   </footer>
 
-  <!-- Audios -->
   <audio id="sound-bomb" src="media/risa-nelson.mp3"></audio>
   <audio id="sound-win" src="media/homer-woohoo.mp3"></audio>
   <audio id="background-sound" loop>
@@ -81,7 +68,27 @@
     Tu navegador no soporta audio HTML5.
   </audio>
 
-  <!-- Script del juego -->
+<!-- === CONTACTO === -->
+<section id="contacto" class="contacto-section">
+  <h2>Contacto</h2>
+  <form id="contact-form">
+    <input type="text" id="nombre" placeholder="Tu nombre" required />
+    <input type="email" id="email" placeholder="Correo electrónico" required />
+    <textarea id="mensaje" placeholder="Tu mensaje..." rows="4" required></textarea>
+    <button type="submit">Enviar mensaje</button>
+  </form>
+</section>
+
+<footer>
+  <p>Hecho por <strong>GastonUgaldeDesarrollador</strong></p>
+  <p>
+    <a href="https://github.com/TU_USUARIO/TU_REPOSITORIO" target="_blank">
+      Ver código en GitHub
+    </a>
+  </p>
+</footer>
+
+
   <script src="script.js"></script>
 </body>
 </html>

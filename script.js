@@ -332,4 +332,40 @@ startButton.addEventListener('click', () => {
   document.getElementById('game-container').classList.remove('hidden');
   statusMessage.textContent = `¡Buena suerte, ${userName}!`;
   createGrid();
+
 });
+
+// Validación del formulario de contacto
+const contactForm = document.getElementById("contact-form");
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nombre = document.getElementById("nombre").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const mensaje = document.getElementById("mensaje").value.trim();
+
+    const nombreValido = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{3,}$/.test(nombre);
+    const emailValido = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+    const mensajeValido = mensaje.length > 5;
+
+    if (!nombreValido) {
+      alert("El nombre debe tener al menos 3 letras y solo caracteres válidos.");
+      return;
+    }
+
+    if (!emailValido) {
+      alert("El correo electrónico no es válido.");
+      return;
+    }
+
+    if (!mensajeValido) {
+      alert("El mensaje debe contener más de 5 caracteres.");
+      return;
+    }
+
+    // Abrir herramienta de envío de emails predeterminada
+    const mailtoLink = `mailto:ejemplo@correo.com?subject=Mensaje de ${encodeURIComponent(nombre)}&body=${encodeURIComponent(mensaje)}%0A%0ACorreo: ${email}`;
+    window.location.href = mailtoLink;
+  });
+}
